@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hot dog not hot dog</title>
+    <title>Rugby Ball or No Rugby Ball</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     
-      <img src="<%= img%>" alt="uploaded image" />
-
+      <% if (count > 0) { %>
+          <img src="<%= img%>" alt="Rugby Ball" />
+          <h1>Rugby Ball</h1> 
+        <% } else if (count === 0 && sports > 0){ %>
+            <img src="<%= img%>" alt="Rugby Ball" />
+            <h1>There is definitely a sports ball in this photo, but I can't be sure if it's a rugby ball.</h1> 
+        <% } else if (noObjectCount > 0){ %>
+          <img src="<%= img%>" alt="Rugby Ball" />
+          <h1>No objects were found in this image, try another one.</h1> 
+        <% } else { %>
+          <img src="<%= img%>" alt="No Rugby Ball" />
+          <h1>No Rugby ball</h1> 
+      <% } %>
       <form action="/" enctype="multipart/form-data" method="post">
       <input type="file" name="file-to-upload" />
       <input type="submit" value="Upload" />
