@@ -118,4 +118,4 @@ app.post("/", upload.single("file-to-upload"), async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 2121);
